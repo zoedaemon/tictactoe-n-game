@@ -58,7 +58,6 @@ content {
   margin: 5%;
   transition-timing-function: ease-in-out;
   transition-duration: 0.5s;
-  transition-timing-function: linear;
   transition-delay: 0.25s;
 }
 
@@ -92,6 +91,9 @@ content {
   background-color: #e4cb42;
   box-shadow: inset -10px -10px 50px #e4cb42, 0px 0px 5px #e4cb42,
     inset 0px 0px 10px #e4cb42; /*set minimum shadow as posible*/
+  transition-timing-function: ease-out-in;
+  transition-duration: 0.5s;
+  transition-delay: 0.25s;
 }
 
 .xshape:before {
@@ -117,4 +119,15 @@ content {
   background-color: #e4cb42;
   box-shadow: inset -10px -10px 150px #e4cb42, 3px 3px 5px #e4cb42,
     inset 0px 0px 10px #e4cb42;
+  transition-timing-function: ease-out-in;
+  transition-duration: 0.5s;
+  transition-delay: 0.25s;
+}
+
+.none {
+  height: inherit;
+  width: inherit;
+  border-color: #3caea3;
+  border-style: hidden;
+  background-color: none;
 }
