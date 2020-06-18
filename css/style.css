@@ -29,7 +29,7 @@ content {
   overflow-wrap: normal;
 }
 
-/*for circle shape & effect*/
+/*for circle shape */
 .circle {
   height: 1.5em;
   width: 1.7em;
@@ -43,6 +43,9 @@ content {
     inset 0px 0px 10px #7aac2a; /*set minimum shadow as posible*/
   display: inline-block;
   margin: 5%;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.5s;
+  transition-delay: 0.25s;
 }
 
 .circle:hover {
@@ -57,9 +60,6 @@ content {
     inset 0px 0px 10px #7aac2a;
   display: inline-block;
   margin: 5%;
-  transition-timing-function: ease-in-out;
-  transition-duration: 0.5s;
-  transition-delay: 0.25s;
 }
 
 .circle:after {
@@ -71,7 +71,27 @@ content {
   transform: rotate(40deg);
 }
 
-/*for circle shape & effect*/
+/*for circle effect*/
+.circle-click-effect:hover {
+  height: 1.5em;
+  width: 1.7em;
+  border-radius: 70%;
+  border: #ac2a35 0.1em solid;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 400%;
+  position: relative;
+  box-shadow: inset -10px -10px 50px #7aac2a, 0px 0px 5px #7aac2a,
+    inset 0px 0px 10px #7aac2a; /*set minimum shadow as posible*/
+  display: inline-block;
+  margin: 5%;
+
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.5s;
+  transition-delay: 0.25s;
+}
+
+/*for xshape shape */
 .xshape {
   position: relative;
   height: 150px;
@@ -145,6 +165,59 @@ content {
   right: -2px;
 }
 
+/*for xshape effect*/
+.xshape-click-effect {
+  position: relative;
+  height: 150px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px hidden pink; /*must set for maintain shape*/
+  justify-content: center;
+  align-items: center;
+
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.5s;
+  transition-delay: 0.25s;
+}
+.xshape-click-effect:before,
+.xshape-click-effect:after {
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.25s;
+  transition-delay: 0.1s;
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 4px;
+  background-color: #ac2a35;
+  box-shadow: inset -10px -10px 50px red, 0px 0px 5px #e4cb42,
+    inset 0px 0px 10px #ac2a35;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.5s;
+  transition-delay: 0.25s;
+}
+
+.xshape-click-effect:before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
+  left: 2px;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.45s;
+  transition-delay: 0.15s;
+}
+
+.xshape-click-effect:after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  right: 2px;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.45s;
+  transition-delay: 0.15s;
+}
+
 /*for none shape & effect*/
 .none {
   height: inherit;
@@ -152,7 +225,7 @@ content {
   border-color: #3caea3;
   border-style: hidden;
   background-color: none;
-  transition-timing-function: ease-out-in;
+  transition-timing-function: ease-in-out;
   transition-duration: 0.5s;
   transition-delay: 0.25s;
 }
