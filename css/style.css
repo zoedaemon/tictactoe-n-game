@@ -11,14 +11,14 @@ body {
 }
 
 content {
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
   width: 85%;
   height: 100%;
 }
 
 .box {
-  display: flex;
-  flex-direction: row;
+  display: inline-flex;
   padding: 0.2em;
   height: 6.7em;
   width: 6.9em;
@@ -97,7 +97,7 @@ content {
   height: 150px;
   width: 150px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   border: 1px hidden pink; /*must set for maintain shape*/
   justify-content: center;
