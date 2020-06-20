@@ -1,6 +1,7 @@
 var locked = false;
 var TicTacToeSize = 3;
 var ID;
+var CurrTurn = "circle";
 /**clickBox: just simple click */
 function clickBox() {
   console.log("clicked");
@@ -58,25 +59,26 @@ function createTable(id, tictactoeSize, isReplaced) {
       td.className = "box";
       // td.id = "box" + currId;
 
-      let currentTurn = "circle";
       divContent = document.createElement("div");
       divContent.className = "none";
 
       //can do like this but more prefer to set directly to DOM obj events (onmouseenter & onmouseleave)
       //td.setAttribute("onmouseenter", "");
       divContent.onmouseenter = function () {
-        changeShape(this, "none", currentTurn);
+        changeShape(this, "none", CurrTurn);
       };
       divContent.onmouseleave = function () {
-        changeShape(this, currentTurn, "none");
+        changeShape(this, CurrTurn, "none");
       };
 
       //for click or touch event when user decided to put O or X
       divContent.onclick = function () {
-        lockShape(this, currentTurn, currentTurn + "-click-effect");
+        lockShape(this, CurrTurn, CurrTurn + "-click-effect");
+        nextTurn();
       };
       // divContent.ontouchend = function () {
       //   lockShape(this, currentTurn, currentTurn + "-click-effect");
+      //   nextTurn();
       // };
 
       //append to box
@@ -121,4 +123,12 @@ function updateTicTacToe(obj) {
   createTable(ID, TicTacToeSize, true);
   document.getElementById("CurrentSize").innerHTML =
     "Change " + obj.value + " x " + obj.value;
+}
+
+function nextTurn() {
+  if (CurrTurn == "circle") {
+    CurrTurn = "xshape";
+  } else {
+    CurrTurn = "circle";
+  }
 }
