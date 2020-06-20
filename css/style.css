@@ -107,12 +107,12 @@ body {
   height: 1.5em;
   width: 1.7em;
   border-radius: 70%;
-  border: #ac2a35 0.1em solid;
+  border: #3caea3 0.1em solid;
   text-align: center;
   vertical-align: middle;
   font-size: 400%;
   position: relative;
-  box-shadow: inset -10px -10px 50px #7aac2a, 0px 0px 5px #7aac2a,
+  box-shadow: inset -10px -10px 50px #3caea3, 0px 0px 5px #7aac2a,
     inset 0px 0px 10px #7aac2a; /*set minimum shadow as posible*/
   display: inline-block;
   margin: 5%;
