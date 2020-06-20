@@ -9,10 +9,10 @@ function clickBox() {
 
 /**changeShape: change to respective shape */
 function changeShape(obj, defaultShape, wantShape) {
-  if (locked == true) {
-    console.log("shaped has been locked");
-    return;
-  }
+  // if (locked == true) {
+  //   console.log("shaped has been locked");
+  //   return;
+  // }
   console.log("change shaped");
   let regExp = new RegExp("(?:^|\\s)" + defaultShape + "(?!\\S)", "g");
   console.log(regExp);
@@ -25,7 +25,10 @@ function lockShape(obj, defaultShape, wantShape) {
   let delayInMilliseconds = 1000; //1 second
   setTimeout(function () {
     changeShape(obj, wantShape, defaultShape);
-    locked = true;
+    // locked = true;
+    //destroy event handlers
+    obj.onmouseenter = null;
+    obj.onmouseleave = null;
   }, delayInMilliseconds);
 }
 
@@ -67,6 +70,15 @@ function createTable(id, tictactoeSize, isReplaced) {
       divContent.onmouseleave = function () {
         changeShape(this, currentTurn, "none");
       };
+
+      //for click or touch event when user decided to put O or X
+      divContent.onclick = function () {
+        lockShape(this, currentTurn, currentTurn + "-click-effect");
+      };
+      divContent.ontouchend = function () {
+        lockShape(this, currentTurn, currentTurn + "-click-effect");
+      };
+
       //append to box
       td.appendChild(divContent);
 
