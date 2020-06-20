@@ -8,7 +8,7 @@
     <div class="status-panel">Win 0 - Tie 0 - Lose 0</div>
     <div class="toolbox">
       <strong>
-        Change Size
+        Change N x N
       </strong>
       <strong
         ><input
@@ -17,13 +17,13 @@
           max="100"
           value="3"
           class="slider"
-          id="myRange"
+          onchange="updateTicTacToe(this)"
       /></strong>
     </div>
 
     <div id="content">
       <div id="tictactoe"></div>
-      <!-- <div class="box">
+      <div class="box">
         <div class="circle" onclick="clickBox()"></div>
       </div>
       <div class="box">
@@ -44,7 +44,7 @@
           onmouseleave="changeShape(this,'xshape', 'none');"
           onclick="lockShape(this,'xshape', 'xshape-click-effect');"
         ></div>
-      </div> -->
+      </div>
     </div>
   </body>
 </html>

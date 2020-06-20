@@ -1,6 +1,6 @@
 var locked = false;
 var TicTacToeSize = 3;
-
+var ID;
 /**clickBox: just simple click */
 function clickBox() {
   console.log("clicked");
@@ -30,24 +30,25 @@ function lockShape(obj, defaultShape, wantShape) {
 }
 
 function init(id) {
+  ID = id;
   createDefaultTable(id);
 }
 
 function createDefaultTable(id) {
-  createTable(id, TicTacToeSize);
+  createTable(id, TicTacToeSize, false);
 }
 
 /**createTable from array*/
-function createTable(id, objectArray, fields) {
+function createTable(id, tictactoeSize, isReplaced) {
   let parent = document.getElementById(id);
   let tbl = document.createElement("table");
   let tbdy = document.createElement("tbody");
   let tr = document.createElement("tr");
 
   let currId = 0;
-  for (let col = 0; col < TicTacToeSize; col++) {
+  for (let col = 0; col < tictactoeSize; col++) {
     let tr = document.createElement("tr");
-    for (let row = 0; row < TicTacToeSize; row++) {
+    for (let row = 0; row < tictactoeSize; row++) {
       var td = document.createElement("td");
 
       //set up some atributtes
@@ -77,7 +78,24 @@ function createTable(id, objectArray, fields) {
   }
 
   tbl.appendChild(tbdy);
-  parent.appendChild(tbl);
+
+  if (isReplaced) {
+    oldTbl = document.getElementById(id).childNodes[0];
+    parent.replaceChild(tbl, oldTbl);
+  } else {
+    parent.appendChild(tbl);
+  }
 
   return tbl;
+}
+
+function updateTicTacToe(obj) {
+  //update tictactoe size then recreate table
+  if (obj.value > 3) {
+    TicTacToeSize = obj.value;
+    createTable(ID, TicTacToeSize, true);
+  } else {
+    alert("I am sorry minimum size is 3, please slide to 3 or more");
+    obj.value = 3;
+  }
 }
