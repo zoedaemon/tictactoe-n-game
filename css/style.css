@@ -10,11 +10,15 @@ body {
   font-size: 3.1em;
 }
 
-content {
+#content {
   display: flex;
   flex-direction: row;
-  width: 85%;
-  height: 100%;
+  width: 2000em;
+  white-space: nowrap;
+  position: relative;
+  overflow-x: auto;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 .box {
@@ -27,6 +31,8 @@ content {
   border-style: inset;
   background-color: #ac2a35;
   overflow-wrap: normal;
+  float: none;
+  zoom: 1;
 }
 
 /*for circle shape */

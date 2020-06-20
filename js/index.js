@@ -49,8 +49,27 @@ function createTable(id, objectArray, fields) {
     let tr = document.createElement("tr");
     for (let row = 0; row < TicTacToeSize; row++) {
       var td = document.createElement("td");
+
+      //set up some atributtes
       td.className = "box";
-      td.id = "box" + currId;
+      // td.id = "box" + currId;
+
+      let currentTurn = "circle";
+      divContent = document.createElement("div");
+      divContent.className = "none";
+
+      //can do like this but more prefer to set directly to DOM obj events (onmouseenter & onmouseleave)
+      //td.setAttribute("onmouseenter", "");
+      divContent.onmouseenter = function () {
+        changeShape(this, "none", currentTurn);
+      };
+      divContent.onmouseleave = function () {
+        changeShape(this, currentTurn, "none");
+      };
+      //append to box
+      td.appendChild(divContent);
+
+      //append to current columns tr
       tr.appendChild(td);
       currId++;
     }
