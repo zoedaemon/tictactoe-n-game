@@ -6,6 +6,21 @@
   </head>
   <body onload="init('tictactoe')">
     <div class="status-panel">Win 0 - Tie 0 - Lose 0</div>
+    <div class="toolbox">
+      <strong>
+        Change Size
+      </strong>
+      <strong
+        ><input
+          type="range"
+          min="1"
+          max="100"
+          value="3"
+          class="slider"
+          id="myRange"
+      /></strong>
+    </div>
+
     <div id="content">
       <div id="tictactoe"></div>
       <!-- <div class="box">
