@@ -75,9 +75,9 @@ function createTable(id, tictactoeSize, isReplaced) {
       divContent.onclick = function () {
         lockShape(this, currentTurn, currentTurn + "-click-effect");
       };
-      divContent.ontouchend = function () {
-        lockShape(this, currentTurn, currentTurn + "-click-effect");
-      };
+      // divContent.ontouchend = function () {
+      //   lockShape(this, currentTurn, currentTurn + "-click-effect");
+      // };
 
       //append to box
       td.appendChild(divContent);
