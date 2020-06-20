@@ -1,5 +1,6 @@
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TicTacToe N Game</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <script type="text/javascript" src="js/index.js"></script>
@@ -7,23 +8,25 @@
   <body onload="init('tictactoe')">
     <div class="status-panel">Win 0 - Tie 0 - Lose 0</div>
     <div class="toolbox">
-      <strong>
-        Change N x N
+      <strong id="CurrentSize">
+        Change 3 x 3
       </strong>
       <strong
         ><input
           type="range"
           min="1"
-          max="100"
+          max="200"
           value="3"
           class="slider"
           onchange="updateTicTacToe(this)"
+          mousemove="updateInfoSize(this)"
+          mousedown="updateInfoSize(this)"
       /></strong>
     </div>
 
     <div id="content">
       <div id="tictactoe"></div>
-      <div class="box">
+      <!-- <div class="box">
         <div class="circle" onclick="clickBox()"></div>
       </div>
       <div class="box">
@@ -44,7 +47,7 @@
           onmouseleave="changeShape(this,'xshape', 'none');"
           onclick="lockShape(this,'xshape', 'xshape-click-effect');"
         ></div>
-      </div>
+      </div> -->
     </div>
   </body>
 </html>

@@ -89,13 +89,24 @@ function createTable(id, tictactoeSize, isReplaced) {
   return tbl;
 }
 
+function updateInfoSize(obj) {
+  window.requestAnimationFrame(function () {
+    document.getElementById("CurrentSize").innerHTML =
+      "Change " + obj.value + " x " + obj.value;
+    rng.setAttribute("aria-valuenow", obj.value); // include for accessibility
+  });
+}
+
 function updateTicTacToe(obj) {
   //update tictactoe size then recreate table
-  if (obj.value > 3) {
+  if (obj.value >= 3) {
     TicTacToeSize = obj.value;
-    createTable(ID, TicTacToeSize, true);
   } else {
     alert("I am sorry minimum size is 3, please slide to 3 or more");
     obj.value = 3;
+    TicTacToeSize = obj.value;
   }
+  createTable(ID, TicTacToeSize, true);
+  document.getElementById("CurrentSize").innerHTML =
+    "Change " + obj.value + " x " + obj.value;
 }
